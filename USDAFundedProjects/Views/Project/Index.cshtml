@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Search Results";
+    List<USDAFundedProjects.Models.Project> Results = ViewBag.Results;
+}
+
+@section addedStyles {
+    <style>
+        th {
+            white-space: nowrap;
+            padding-right: 5px;
+        }
+    </style>
+}
+
+<section class="content-wrapper main-content clear-fix">
+    <h2>Search Results</h2><br />
+    <a href="javascript: window.history.back();">Back to Search</a><br />
+</section>
+<section style="margin-left: 40px;">
+@if (Results.Count > 0)
+{
+    <table style="width: 90%">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Program</th>
+                <th>Agency</th>
+                <th>Mission Area</th>
+                <th>Recipient Type</th>
+                <th>Funding Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (USDAFundedProjects.Models.Project p in Results)
+            {
+                <tr>
+                    <td>@Html.ActionLink(p.Title, "Details", "Project", new { id = p.ProjectID }, null)</td>
+                    <td>@p.Year</td>
+                    <td>@p.Program.Name</td>
+                    <td>@p.Agency.Name</td>
+                    <td>@p.MissionArea.Name</td>
+                    <td>@p.RecipientType.Description</td>
+                    <td>@p.FundingType.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    @("No projects found with that criteria")
+}
+</section>

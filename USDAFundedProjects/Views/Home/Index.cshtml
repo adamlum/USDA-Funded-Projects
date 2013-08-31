@@ -1,0 +1,66 @@
+﻿@{
+    List<USDAFundedProjects.Models.Program> Programs = ViewBag.Programs;
+    List<USDAFundedProjects.Models.Agency> Agencies = ViewBag.Agencies;
+    List<USDAFundedProjects.Models.MissionArea> Missions = ViewBag.Missions;
+    List<USDAFundedProjects.Models.RecipientType> RecipientTypes = ViewBag.RecipientTypes;
+    List<USDAFundedProjects.Models.FundingType> FundingTypes = ViewBag.FundingTypes;
+    List<USDAFundedProjects.Models.Topic> Topics = ViewBag.Topics;
+    int[] Years = ViewBag.Years;
+    
+    SelectList ProgramsSelectList = new SelectList(Programs, "ProgramID", "Name");
+    SelectList AgenciesSelectList = new SelectList(Agencies, "AgencyID", "Name");
+    SelectList MissionsSelectList = new SelectList(Missions, "MissionAreaID", "Name");
+    SelectList RecipientTypesSelectList = new SelectList(RecipientTypes, "RecipientTypeID", "Description");
+    SelectList FundingTypesSelectList = new SelectList(FundingTypes, "FundingTypeID", "Description");
+    SelectList TopicsSelectList = new SelectList(Topics, "TopicID", "Description");
+    
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+<section class="content-wrapper main-content clear-fix">
+<h3>Find a USDA Funded Project:</h3><br />
+@using (Html.BeginForm("Index", "Project", FormMethod.Post)) {
+    <table>
+        <tr>
+            <td>Title: </td>
+            <td>@Html.TextBox("ProjectTitle")</td>
+        </tr>
+        <tr>
+            <td>Year: </td>
+            <td>@Html.DropDownList("Year", Years.Select((year, index) => new SelectListItem { Text = year.ToString(), Value = year.ToString() }), "Any")</td>
+        </tr>
+        <tr>
+            <td>Program: </td>
+            <td>@Html.DropDownList("ProgramID", ProgramsSelectList, "Any")</td>
+        </tr>
+        <tr>
+            <td>Agency: </td>
+            <td>@Html.DropDownList("AgencyID", AgenciesSelectList, "Any")</td>
+        </tr>
+        <tr>
+            <td>Mission Area: </td>
+            <td>@Html.DropDownList("MissionAreaID", MissionsSelectList, "Any")</td>
+        </tr>
+        <tr>
+            <td>Recipient Type: </td>
+            <td>@Html.DropDownList("RecipientTypeID", RecipientTypesSelectList, "Any")</td>
+        </tr>
+        <tr>
+            <td>Funding Type: </td>
+            <td>@Html.DropDownList("FundingTypeID", FundingTypesSelectList, "Any")</td>
+        </tr>
+        <tr>
+            <td>Topic: </td>
+            <td>@Html.DropDownList("TopicID", TopicsSelectList, "Any")</td>
+        </tr>
+        <tr><td colspan="2"><input type="submit" value="Find Projects" /></td></tr>
+    </table>
+}
+</section>

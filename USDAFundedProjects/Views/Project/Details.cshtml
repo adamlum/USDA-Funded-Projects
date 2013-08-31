@@ -1,0 +1,81 @@
+﻿@model USDAFundedProjects.Models.Project
+@{
+    ViewBag.Title = Model.Title;
+    USDAFundedProjects.Models.Topic TopicA = ViewBag.TopicA;
+    USDAFundedProjects.Models.Topic TopicB = ViewBag.TopicB;
+    USDAFundedProjects.Models.Topic TopicC = ViewBag.TopicC;
+}
+@section addedStyles {
+    <style>
+        .property {
+            font-weight: bold;
+        }
+    </style>
+}
+<section class="content-wrapper main-content clear-fix">
+    <h2>@Model.Title</h2>
+    <table>
+        <tr>
+            <td class="property">Recipient:</td>
+            <td>@Model.Recipient</td>
+        </tr>
+        <tr>
+            <td class="property">Recipient Type:</td>
+            <td>@Model.RecipientType.Description</td>
+        </tr>
+        <tr>
+            <td class="property">Year:</td>
+            <td>@Model.Year</td>
+        </tr>
+        <tr>
+            <td class="property">Program:</td>
+            <td>@Model.Program.Name</td>
+        </tr>
+        <tr>
+            <td class="property">Agency:</td>
+            <td>@Model.Agency.Name</td>
+        </tr>
+        <tr>
+            <td class="property">Mission Area:</td>
+            <td>@Model.MissionArea.Name</td>
+        </tr>
+        <tr>
+            <td class="property">Funding Type:</td>
+            <td>@Model.FundingType.Description</td>
+        </tr>
+        <tr>
+            <td class="property">Funding Amount:</td>
+            <td>@String.Format("{0:C}", Model.FundingAmount)</td>
+        </tr>
+        <tr>
+            <td class="property">Location:</td>
+            <td>@Model.Town, @Model.State @Model.Zip</td>
+        </tr>
+        @if (TopicA != null)
+        {
+        <tr>
+            <td class="property">Topic A:</td>
+            <td>@TopicA.Description</td>
+        </tr>  
+        }
+        @if (TopicB != null)
+        {
+        <tr>
+            <td class="property">Topic B:</td>
+            <td>@TopicB.Description</td>
+        </tr>  
+        }
+        @if (TopicC != null)
+        {
+        <tr>
+            <td class="property">Topic C:</td>
+            <td>@TopicC.Description</td>
+        </tr>  
+        }
+        <tr>
+            <td class="property">More Information:</td>
+            <td>@Html.Raw(String.Format("<a href=\"{0}\" target=\"_blank\">{1}</a>", Model.MoreInfoURL, Model.MoreInfoURL))</td>
+        </tr>
+        <tr><td colspan="2"><span class="property">Description:</span><br />@Model.Description</td></tr>
+    </table>
+</section>
