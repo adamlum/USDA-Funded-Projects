@@ -29,10 +29,6 @@
 @using (Html.BeginForm("Index", "Project", FormMethod.Post)) {
     <table>
         <tr>
-            <td>Title: </td>
-            <td>@Html.TextBox("ProjectTitle")</td>
-        </tr>
-        <tr>
             <td>Year: </td>
             <td>@Html.DropDownList("Year", Years.Select((year, index) => new SelectListItem { Text = year.ToString(), Value = year.ToString() }), "Any")</td>
         </tr>
