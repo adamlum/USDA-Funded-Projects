@@ -37,11 +37,11 @@
                 <tr>
                     <td>@Html.ActionLink(p.Title, "Details", "Project", new { id = p.ProjectID }, null)</td>
                     <td>@p.Year</td>
-                    <td>@p.Program.Name</td>
-                    <td>@p.Agency.Name</td>
-                    <td>@p.MissionArea.Name</td>
-                    <td>@p.RecipientType.Description</td>
-                    <td>@p.FundingType.Description</td>
+                    <td style="white-space: nowrap">@p.Program.Name</td>
+                    <td style="white-space: nowrap">@p.Agency.Name</td>
+                    <td style="white-space: nowrap">@p.MissionArea.Name</td>
+                    <td style="white-space: nowrap">@p.RecipientType.Description</td>
+                    <td style="white-space: nowrap">@p.FundingType.Description</td>
                 </tr>
             }
         </tbody>
