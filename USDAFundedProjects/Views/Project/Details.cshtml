@@ -1,6 +1,6 @@
 ﻿@model USDAFundedProjects.Models.Project
 @{
-    ViewBag.Title = Model.Title;
+    ViewBag.Title = (Model.Title.Length > 0) ? Model.Title : Model.Recipient + " " + Model.FundingType.Description;
     USDAFundedProjects.Models.Topic TopicA = ViewBag.TopicA;
     USDAFundedProjects.Models.Topic TopicB = ViewBag.TopicB;
     USDAFundedProjects.Models.Topic TopicC = ViewBag.TopicC;
@@ -13,7 +13,7 @@
     </style>
 }
 <section class="content-wrapper main-content clear-fix">
-    <h2>@Model.Title</h2>
+    <h2>@ViewBag.Title</h2>
     <table>
         <tr>
             <td class="property">Recipient:</td>

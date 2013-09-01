@@ -165,6 +165,5 @@ C:\Users\adam\Documents\Visual Studio 2012\Projects\USDAFundedProjects\USDAFunde
 C:\Users\adam\Documents\Visual Studio 2012\Projects\USDAFundedProjects\USDAFundedProjects\bin\ru\System.Spatial.resources.dll
 C:\Users\adam\Documents\Visual Studio 2012\Projects\USDAFundedProjects\USDAFundedProjects\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\adam\Documents\Visual Studio 2012\Projects\USDAFundedProjects\USDAFundedProjects\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\adam\Documents\Visual Studio 2012\Projects\USDAFundedProjects\USDAFundedProjects\obj\Debug\USDAFundedProjects.csprojResolveAssemblyReference.cache
 C:\Users\adam\Documents\Visual Studio 2012\Projects\USDAFundedProjects\USDAFundedProjects\obj\Debug\USDAFundedProjects.dll
 C:\Users\adam\Documents\Visual Studio 2012\Projects\USDAFundedProjects\USDAFundedProjects\obj\Debug\USDAFundedProjects.pdb

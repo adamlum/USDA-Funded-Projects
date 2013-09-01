@@ -34,8 +34,9 @@
         <tbody>
             @foreach (USDAFundedProjects.Models.Project p in Results)
             {
+                string title = (p.Title.Length > 0) ? p.Title : p.Recipient + " " + p.FundingType.Description;
                 <tr>
-                    <td>@Html.ActionLink(p.Title, "Details", "Project", new { id = p.ProjectID }, null)</td>
+                    <td>@Html.ActionLink(title, "Details", "Project", new { id = p.ProjectID }, null)</td>
                     <td>@p.Year</td>
                     <td style="white-space: nowrap">@p.Program.Name</td>
                     <td style="white-space: nowrap">@p.Agency.Name</td>
